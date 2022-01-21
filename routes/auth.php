@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminLoginController;
+use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
@@ -26,10 +28,16 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 
 //Auth routes for admin users
 
-Route::get('/login/admin', function (){
+Route::get('/login/admin', [function (){
     return view('auth.admin.login');
-})->name('admin.login');
+}])->name('admin.login');
 
-Route::post('/login/admin', function (){
-    return "oi";
-});
+Route::post('/login/admin', [AdminLoginController::class, 'store']);
+
+Route::get('/register/admin', function(){
+    return view('auth.admin.register');
+})->name('admin.register');
+
+Route::post('/register/admin', [
+    AdminRegisterController::class, 'store'
+]);
