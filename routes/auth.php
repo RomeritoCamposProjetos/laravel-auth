@@ -34,10 +34,12 @@ Route::get('/login/admin', [function (){
 
 Route::post('/login/admin', [AdminLoginController::class, 'store']);
 
-Route::get('/register/admin', function(){
-    return view('auth.admin.register');
-})->name('admin.register');
+Route::get('/register/admin', [AdminLoginController::class, 'create'])
+    ->name('admin.register');
 
 Route::post('/register/admin', [
     AdminRegisterController::class, 'store'
 ]);
+
+Route::post('/admin/logout', [AdminLoginController::class, 'destroy'])
+    ->name('admin.logout');

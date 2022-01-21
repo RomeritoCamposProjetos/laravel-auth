@@ -11,7 +11,7 @@ class AdminLoginController extends Controller
 {
     
     public function create () {
-        
+        return view('auth.admin.register');
     }
 
     public function store (Request $request) {
@@ -22,6 +22,18 @@ class AdminLoginController extends Controller
         } else {
             return redirect()->back ()->withInput($request->only('email'));
         }
+
+    }
+
+    public function destroy(Request $request) {
+
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->to(route('landing'));
 
     }
 

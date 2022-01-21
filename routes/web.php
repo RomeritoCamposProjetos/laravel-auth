@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('landing');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -23,6 +23,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/admin/panel', function(){
     return view('admin.panel');
-})->name('admin.panel')->middleware('admin.auth');
+})->name('admin.panel')->middleware('auth:admin');
 
 require __DIR__.'/auth.php';

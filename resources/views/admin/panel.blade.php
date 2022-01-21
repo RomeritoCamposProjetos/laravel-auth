@@ -17,7 +17,7 @@
                 <h1>Home page</h1>
             </div>
             <div class="row py-5 justify-content-center">
-                <form action="{{route('logout')}}" method="POST">
+                <form action="{{route('admin.logout')}}" method="POST">
                     @csrf
                     <button class="btn btn-primary">
                         Sair
