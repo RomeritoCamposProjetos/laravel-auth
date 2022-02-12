@@ -30,9 +30,13 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 
 Route::get('/login/admin', [function (){
     return view('auth.admin.login');
-}])->name('admin.login');
+}])->name('admin.login')->middleware(['guest:admin']);
 
-Route::post('/login/admin', [AdminLoginController::class, 'store']);
+Route::post('/login/admin', [AdminLoginController::class, 'store'])
+    ->middleware('guest:admin');
+
+Route::post('/admin/logout', [AdminLoginController::class, 'destroy'])
+    ->name('admin.logout');
 
 Route::get('/register/admin', [AdminLoginController::class, 'create'])
     ->name('admin.register');
@@ -41,5 +45,3 @@ Route::post('/register/admin', [
     AdminRegisterController::class, 'store'
 ]);
 
-Route::post('/admin/logout', [AdminLoginController::class, 'destroy'])
-    ->name('admin.logout');

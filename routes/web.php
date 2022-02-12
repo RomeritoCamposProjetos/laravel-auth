@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/admin/panel', function(){
     return view('admin.panel');
-})->name('admin.panel')->middleware('auth:admin');
+})->name('admin.panel')->middleware(['admin']);
 
 require __DIR__.'/auth.php';

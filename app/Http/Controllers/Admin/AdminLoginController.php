@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller
 {
+
+    public function __construct()
+    {
+
+    }
     
     public function create () {
         return view('auth.admin.register');
@@ -27,7 +32,7 @@ class AdminLoginController extends Controller
 
     public function destroy(Request $request) {
 
-        Auth::guard('web')->logout();
+        Auth::guard('admin')->logout();
 
         $request->session()->invalidate();
 
