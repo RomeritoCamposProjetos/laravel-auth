@@ -13,16 +13,34 @@
 
     <div class="container">
         <div class="container-fluid">
-            <div class="d-flex flex-row justify-content-center py-5">
-                <h1>Home page</h1>
-            </div>
-            <div class="row py-5 justify-content-center">
+            <div class="d-flex flex-row justify-content-between align-items-center py-5">
+                <h1>Home page - Admins</h1>
                 <form action="{{route('admin.logout')}}" method="POST">
                     @csrf
                     <button class="btn btn-primary">
                         Sair
                     </button>
                 </form>
+            </div>
+            <div class="row py-2 justify-content-center">
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($admins as $admin)
+                        <tr>
+                            <td>{{$admin->name}}</td>
+                            <td>{{$admin->email}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
             </div>            
         </div>
     </div>

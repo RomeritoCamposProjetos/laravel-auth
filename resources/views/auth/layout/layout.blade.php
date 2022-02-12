@@ -12,8 +12,9 @@
     <div class="container">
         <div class="container-fluid py-5">
             <div class="col border rounded">
-                <div class="d-flex flex-row py-5 justify-content-center">
-                    <h1 class="text-bold">@yield('title', 'Login')</h1>    
+                <div class="d-flex flex-column pt-5 justify-content-center">
+                    <h1 class="text-bold align-self-center">Autenticação com Multi-table Multi-guard</h1>
+                    <h3 class="text-bold align-self-center pt-3">@yield('title', 'Login')</h3>    
                 </div>
                 <div class="row py-3">
                     <div class="offset-col-md-4 col 4">

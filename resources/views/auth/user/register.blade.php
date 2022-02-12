@@ -6,6 +6,7 @@
 
 @section('form')
 @include('auth.layout.register-form', [
-    'route' => url('/register')
+    'route' => url('/register'),
+    'login' => url('/login'),
 ])    
 @endsection

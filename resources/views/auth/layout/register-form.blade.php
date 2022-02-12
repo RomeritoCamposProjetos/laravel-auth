@@ -34,7 +34,8 @@
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary">
+        <a href="{{$login}}" class="btn btn-link float-left">Faça Login</a> 
+      <button type="submit" class="btn btn-primary float-right">
         Enviar
       </button>
     </div>

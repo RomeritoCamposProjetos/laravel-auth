@@ -8,6 +8,7 @@
 
 @include('auth.layout.register-form', [
     'route' => url('/register/admin'),
+    'login' => url('/login/admin'),
 ])
     
 @endsection

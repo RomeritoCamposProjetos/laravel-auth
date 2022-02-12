@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +21,15 @@ Route::get('/', function () {
 })->name('landing');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $users = User::get(['name', 'email']);  
+    return view('dashboard', ['users'=>$users]);
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/admin/panel', function(){
-    return view('admin.panel');
+
+    $admins = Admin::get(['name', 'email']);  
+    return view('admin.panel', ['admins'=>$admins]);
+
 })->name('admin.panel')->middleware(['admin']);
 
 require __DIR__.'/auth.php';
